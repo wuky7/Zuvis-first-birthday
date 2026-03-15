@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>RSVP — Zuvi's 1st Birthday 🌸</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #fdf8f4; font-family: 'Jost', sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem 1rem; }
+  .wrap { max-width: 440px; width: 100%; }
+  .top { text-align: center; margin-bottom: 2rem; }
+  .flower { font-size: 1.6rem; margin-bottom: 0.8rem; display: block; }
+  .heading { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 300; font-style: italic; color: #4a3728; line-height: 1.1; margin-bottom: 0.3rem; }
+  .subheading { font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 300; letter-spacing: 0.22em; text-transform: uppercase; color: #a0816a; margin-bottom: 1rem; }
+  .event-details { background: #fffdf9; border: 0.5px solid #e8d9c8; border-radius: 2px; padding: 1rem 1.5rem; margin-bottom: 2rem; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.8rem; text-align: center; }
+  .ev-label { font-family: 'Jost', sans-serif; font-size: 9px; font-weight: 300; letter-spacing: 0.2em; text-transform: uppercase; color: #b08878; margin-bottom: 0.2rem; }
+  .ev-val { font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; color: #4a3728; line-height: 1.3; }
+  .divider { display: flex; align-items: center; gap: 0.8rem; margin: 0 auto 2rem; width: 60%; }
+  .divider-line { flex: 1; height: 0.5px; background: #d4b99a; }
+  .divider-dot { width: 4px; height: 4px; border-radius: 50%; background: #c9a080; }
+  .form-card { background: #fffdf9; border: 0.5px solid #e8d9c8; border-radius: 2px; padding: 2rem; }
+  .rsvp-field { margin-bottom: 1rem; }
+  .rsvp-field label { display: block; font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; color: #a0816a; margin-bottom: 0.3rem; }
+  .rsvp-field input, .rsvp-field select { width: 100%; padding: 0.55rem 0.75rem; border: 0.5px solid #d4b99a; border-radius: 1px; background: #fdf8f4; font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 300; color: #4a3728; outline: none; }
+  .rsvp-field input:focus, .rsvp-field select:focus { border-color: #a0816a; }
+  .rsvp-field select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23a0816a'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.75rem center; cursor: pointer; }
+  .guests-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .rsvp-btn { width: 100%; padding: 0.75rem; background: #4a3728; color: #fdf8f4; border: none; border-radius: 1px; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 400; letter-spacing: 0.25em; text-transform: uppercase; cursor: pointer; margin-top: 0.5rem; }
+  .rsvp-btn:hover { background: #3a2a1e; }
+  .rsvp-btn:disabled { background: #a0816a; cursor: not-allowed; }
+  .err-msg { color: #c47060; font-size: 12px; font-family: 'Jost', sans-serif; text-align: center; margin-top: 0.5rem; display: none; }
+  .status-msg { font-size: 12px; font-family: 'Jost', sans-serif; text-align: center; margin-top: 0.5rem; display: none; }
+  .success-wrap { display: none; text-align: center; padding: 2rem 1rem; }
+  .success-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+  .success-title { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-style: italic; color: #4a3728; margin-bottom: 0.5rem; }
+  .success-sub { font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 300; color: #a0816a; letter-spacing: 0.05em; }
+  .deadline { font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 300; color: #b08878; text-align: center; margin-top: 1.5rem; letter-spacing: 0.08em; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <span class="flower">🌸</span>
+    <p class="heading">RSVP for Zuvi's<br>1st Birthday</p>
+    <p class="subheading">Saturday, April 25th, 2026</p>
+  </div>
+
+  <div class="event-details">
+    <div>
+      <p class="ev-label">Date</p>
+      <p class="ev-val">April 25th, 2026</p>
+    </div>
+    <div>
+      <p class="ev-label">Time</p>
+      <p class="ev-val">1:00 PM</p>
+    </div>
+    <div>
+      <p class="ev-label">Venue</p>
+      <p class="ev-val">Party Room<br>72 Esther Shiner,<br>North York</p>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div></div>
+
+  <div class="form-card">
+    <div id="rsvp-form">
+      <div class="rsvp-field">
+        <label>Your name</label>
+        <input type="text" id="rsvp-name" placeholder="Full name"/>
+      </div>
+      <div class="rsvp-field">
+        <label>Attending?</label>
+        <select id="rsvp-attending">
+          <option value="">— please select —</option>
+          <option value="Joyfully accepts">Joyfully accepts</option>
+          <option value="Regretfully declines">Regretfully declines</option>
+        </select>
+      </div>
+      <div class="guests-row">
+        <div class="rsvp-field">
+          <label>Adults</label>
+          <select id="rsvp-adults"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+        </div>
+        <div class="rsvp-field">
+          <label>Children</label>
+          <select id="rsvp-children"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option></select>
+        </div>
+      </div>
+      <div class="rsvp-field">
+        <label>Message for the family (optional)</label>
+        <input type="text" id="rsvp-msg" placeholder="A warm wish…"/>
+      </div>
+      <button class="rsvp-btn" id="rsvp-btn" onclick="submitRSVP()">Send RSVP</button>
+      <p class="err-msg" id="rsvp-error">Please fill in your name and attendance.</p>
+      <p class="status-msg" id="status-msg"></p>
+    </div>
+
+    <div class="success-wrap" id="success-wrap">
+      <div class="success-icon">✿</div>
+      <p class="success-title" id="success-title">We look forward to celebrating with you!</p>
+      <p class="success-sub" id="success-sub">Your RSVP has been received. See you April 25th!</p>
+    </div>
+  </div>
+
+  <p class="deadline">Please RSVP by March 29th, 2026</p>
+</div>
+
+<script>
+async function submitRSVP() {
+  const name = document.getElementById('rsvp-name').value.trim();
+  const attending = document.getElementById('rsvp-attending').value;
+  const adults = document.getElementById('rsvp-adults').value;
+  const children = document.getElementById('rsvp-children').value;
+  const msg = document.getElementById('rsvp-msg').value.trim();
+  const err = document.getElementById('rsvp-error');
+  const btn = document.getElementById('rsvp-btn');
+  const status = document.getElementById('status-msg');
+
+  if (!name || !attending) { err.style.display = 'block'; return; }
+  err.style.display = 'none';
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+
+  const emailBody = `🌸 New RSVP for Zuvi's 1st Birthday 🌸\n\nName: ${name}\nResponse: ${attending}\nAdults: ${adults}\nChildren: ${children}\n${msg ? 'Message: ' + msg : ''}\n\n— Sent via Zuvi's Birthday RSVP page`.trim();
+
+  try {
+    const resp = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        messages: [{ role: 'user', content: `Send an email via Gmail to itzparthshah@gmail.com with subject: "🌸 RSVP from ${name} — Zuvi's 1st Birthday" and body:\n${emailBody}` }],
+        mcp_servers: [{ type: 'url', url: 'https://gmail.mcp.claude.com/mcp', name: 'gmail-mcp' }]
+      })
+    });
+    const data = await resp.json();
+    const allText = (data.content || []).filter(b => b.type === 'text').map(b => b.text).join(' ').toLowerCase();
+    const hasTool = (data.content || []).some(b => b.type === 'mcp_tool_result');
+    if (hasTool || allText.includes('sent') || allText.includes('email')) {
+      showSuccess(name, attending);
+    } else { throw new Error(); }
+  } catch {
+    btn.disabled = false;
+    btn.textContent = 'Send RSVP';
+    status.style.color = '#c47060';
+    status.textContent = 'Something went wrong. Please try again.';
+    status.style.display = 'block';
+  }
+}
+
+function showSuccess(name, attending) {
+  document.getElementById('rsvp-form').style.display = 'none';
+  document.getElementById('success-wrap').style.display = 'block';
+  if (attending === 'Joyfully accepts') {
+    document.getElementById('success-title').textContent = 'We look forward to celebrating with you, ' + name + '!';
+    document.getElementById('success-sub').textContent = 'Your RSVP has been received. See you April 25th!';
+  } else {
+    document.getElementById('success-title').textContent = 'Thank you for letting us know, ' + name + '.';
+    document.getElementById('success-sub').textContent = 'You will be missed — we will save you some cake!';
+  }
+}
+</script>
+</body>
+</html>
