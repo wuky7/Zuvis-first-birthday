@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Zuvi's 1st Birthday 🌸</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #fdf8f4; font-family: 'Jost', sans-serif; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 2rem 1rem 4rem; }
+  .invite-card { background: #fffdf9; border: 1px solid #e8d9c8; border-radius: 2px; max-width: 480px; width: 100%; overflow: hidden; }
+  .card-body { padding: 1.5rem 2.5rem 2rem; text-align: center; }
+  .pre-title { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 11px; letter-spacing: 0.25em; color: #a0816a; text-transform: uppercase; margin-bottom: 0.6rem; }
+  .child-name { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300; font-style: italic; color: #4a3728; line-height: 1; margin-bottom: 0.3rem; }
+  .turns-one { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 300; color: #8a6a58; letter-spacing: 0.1em; margin-bottom: 1.5rem; }
+  .divider { display: flex; align-items: center; gap: 0.8rem; margin: 0 auto 1.5rem; width: 80%; }
+  .divider-line { flex: 1; height: 0.5px; background: #d4b99a; }
+  .divider-dot { width: 4px; height: 4px; border-radius: 50%; background: #c9a080; }
+  .detail-block { margin-bottom: 1rem; }
+  .detail-label { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #b08878; margin-bottom: 0.2rem; }
+  .detail-value { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: #4a3728; font-weight: 400; }
+  .detail-value.small { font-size: 1rem; }
+  .rsvp-section { background: #fffdf9; border: 1px solid #e8d9c8; border-radius: 2px; max-width: 480px; width: 100%; padding: 2rem 2.5rem; margin-top: 1.5rem; }
+  .rsvp-title { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-style: italic; color: #4a3728; text-align: center; margin-bottom: 0.3rem; }
+  .rsvp-sub { font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 300; letter-spacing: 0.15em; text-transform: uppercase; color: #a0816a; text-align: center; margin-bottom: 1.5rem; }
+  .rsvp-field { margin-bottom: 1rem; }
+  .rsvp-field label { display: block; font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; color: #a0816a; margin-bottom: 0.3rem; }
+  .rsvp-field input, .rsvp-field select { width: 100%; padding: 0.55rem 0.75rem; border: 0.5px solid #d4b99a; border-radius: 1px; background: #fdf8f4; font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 300; color: #4a3728; outline: none; }
+  .rsvp-field input:focus, .rsvp-field select:focus { border-color: #a0816a; }
+  .rsvp-field select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23a0816a'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.75rem center; cursor: pointer; }
+  .guests-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .rsvp-btn { width: 100%; padding: 0.75rem; background: #4a3728; color: #fdf8f4; border: none; border-radius: 1px; font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 400; letter-spacing: 0.25em; text-transform: uppercase; cursor: pointer; margin-top: 0.5rem; }
+  .rsvp-btn:hover { background: #3a2a1e; }
+  .rsvp-btn:disabled { background: #a0816a; cursor: not-allowed; }
+  .success-msg { display: none; text-align: center; padding: 1rem; }
+  .success-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+  .success-msg p { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-style: italic; color: #4a3728; }
+  .success-small { font-family: 'Jost', sans-serif !important; font-size: 12px !important; font-weight: 300; color: #a0816a; margin-top: 0.3rem; font-style: normal !important; }
+  .deadline-note { font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 300; color: #b08878; text-align: center; margin-top: 1rem; letter-spacing: 0.05em; }
+  .err-msg { color: #c47060; font-size: 12px; font-family: 'Jost', sans-serif; text-align: center; margin-top: 0.5rem; display: none; }
+  .status-msg { font-size: 12px; font-family: 'Jost', sans-serif; text-align: center; margin-top: 0.5rem; display: none; }
+</style>
+</head>
+<body>
+
+<div class="invite-card">
+  <!-- Floral Top -->
+  <svg width="100%" viewBox="0 0 480 120" xmlns="http://www.w3.org/2000/svg">
+    <rect width="480" height="120" fill="#fdf8f4"/>
+    <path d="M0,120 Q60,60 120,80 Q160,90 200,50" stroke="#c4a882" stroke-width="1" fill="none"/>
+    <path d="M480,120 Q420,60 360,80 Q320,90 280,50" stroke="#c4a882" stroke-width="1" fill="none"/>
+    <path d="M0,120 Q40,70 80,60" stroke="#c4a882" stroke-width="0.8" fill="none"/>
+    <path d="M480,120 Q440,70 400,60" stroke="#c4a882" stroke-width="0.8" fill="none"/>
+    <circle cx="120" cy="78" r="14" fill="#e8c4b0" opacity="0.7"/>
+    <circle cx="120" cy="78" r="9" fill="#d4a898"/>
+    <circle cx="120" cy="78" r="5" fill="#c49080"/>
+    <ellipse cx="120" cy="63" rx="5" ry="8" fill="#e8c4b0" opacity="0.8" transform="rotate(-10,120,63)"/>
+    <ellipse cx="131" cy="70" rx="5" ry="8" fill="#e8c4b0" opacity="0.8" transform="rotate(50,131,70)"/>
+    <ellipse cx="109" cy="70" rx="5" ry="8" fill="#e8c4b0" opacity="0.8" transform="rotate(-50,109,70)"/>
+    <ellipse cx="133" cy="82" rx="5" ry="8" fill="#e8c4b0" opacity="0.7" transform="rotate(80,133,82)"/>
+    <ellipse cx="107" cy="82" rx="5" ry="8" fill="#e8c4b0" opacity="0.7" transform="rotate(-80,107,82)"/>
+    <ellipse cx="75" cy="62" rx="6" ry="9" fill="#d4a090" opacity="0.8"/>
+    <ellipse cx="70" cy="60" rx="4" ry="6" fill="#c49080" opacity="0.7" transform="rotate(-20,70,60)"/>
+    <ellipse cx="80" cy="60" rx="4" ry="6" fill="#c49080" opacity="0.7" transform="rotate(20,80,60)"/>
+    <ellipse cx="95" cy="90" rx="12" ry="6" fill="#9ab890" opacity="0.7" transform="rotate(-30,95,90)"/>
+    <ellipse cx="60" cy="80" rx="10" ry="5" fill="#7a9c78" opacity="0.6" transform="rotate(20,60,80)"/>
+    <ellipse cx="140" cy="95" rx="10" ry="5" fill="#9ab890" opacity="0.6" transform="rotate(-15,140,95)"/>
+    <circle cx="55" cy="68" r="4" fill="#f0d4c0" opacity="0.8"/>
+    <circle cx="55" cy="68" r="2" fill="#d4a898"/>
+    <circle cx="160" cy="60" r="3" fill="#f0d4c0" opacity="0.7"/>
+    <circle cx="160" cy="60" r="1.5" fill="#d4a898"/>
+    <circle cx="360" cy="78" r="14" fill="#e8c4b0" opacity="0.7"/>
+    <circle cx="360" cy="78" r="9" fill="#d4a898"/>
+    <circle cx="360" cy="78" r="5" fill="#c49080"/>
+    <ellipse cx="360" cy="63" rx="5" ry="8" fill="#e8c4b0" opacity="0.8" transform="rotate(10,360,63)"/>
+    <ellipse cx="349" cy="70" rx="5" ry="8" fill="#e8c4b0" opacity="0.8" transform="rotate(-50,349,70)"/>
+    <ellipse cx="371" cy="70" rx="5" ry="8" fill="#e8c4b0" opacity="0.8" transform="rotate(50,371,70)"/>
+    <ellipse cx="347" cy="82" rx="5" ry="8" fill="#e8c4b0" opacity="0.7" transform="rotate(-80,347,82)"/>
+    <ellipse cx="373" cy="82" rx="5" ry="8" fill="#e8c4b0" opacity="0.7" transform="rotate(80,373,82)"/>
+    <ellipse cx="405" cy="62" rx="6" ry="9" fill="#d4a090" opacity="0.8"/>
+    <ellipse cx="410" cy="60" rx="4" ry="6" fill="#c49080" opacity="0.7" transform="rotate(20,410,60)"/>
+    <ellipse cx="400" cy="60" rx="4" ry="6" fill="#c49080" opacity="0.7" transform="rotate(-20,400,60)"/>
+    <ellipse cx="385" cy="90" rx="12" ry="6" fill="#9ab890" opacity="0.7" transform="rotate(30,385,90)"/>
+    <ellipse cx="420" cy="80" rx="10" ry="5" fill="#7a9c78" opacity="0.6" transform="rotate(-20,420,80)"/>
+    <ellipse cx="340" cy="95" rx="10" ry="5" fill="#9ab890" opacity="0.6" transform="rotate(15,340,95)"/>
+    <circle cx="425" cy="68" r="4" fill="#f0d4c0" opacity="0.8"/>
+    <circle cx="425" cy="68" r="2" fill="#d4a898"/>
+    <circle cx="320" cy="60" r="3" fill="#f0d4c0" opacity="0.7"/>
+    <circle cx="320" cy="60" r="1.5" fill="#d4a898"/>
+    <circle cx="240" cy="30" r="8" fill="#e8c4b0" opacity="0.6"/>
+    <circle cx="240" cy="30" r="4" fill="#d4a898"/>
+    <circle cx="225" cy="38" r="5" fill="#f0d4c0" opacity="0.7"/>
+    <circle cx="225" cy="38" r="2.5" fill="#d4a898"/>
+    <circle cx="255" cy="38" r="5" fill="#f0d4c0" opacity="0.7"/>
+    <circle cx="255" cy="38" r="2.5" fill="#d4a898"/>
+    <ellipse cx="240" cy="48" rx="8" ry="4" fill="#9ab890" opacity="0.5"/>
+  </svg>
+
+  <div class="card-body">
+    <p class="pre-title">you are warmly invited to celebrate</p>
+    <p class="child-name">Zuvi</p>
+    <p class="turns-one">turning one</p>
+    <div class="divider"><div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div></div>
+    <div class="detail-block"><p class="detail-label">Date</p><p class="detail-value">Saturday, April 25th, 2026</p></div>
+    <div class="detail-block"><p class="detail-label">Time</p><p class="detail-value">1:00 in the afternoon</p></div>
+    <div class="detail-block"><p class="detail-label">Venue</p><p class="detail-value small">Party Room<br>72 Esther Shiner Blvd, North York</p></div>
+    <div class="divider" style="margin-top:1.5rem;margin-bottom:0.8rem;"><div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div></div>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:0.9rem;font-style:italic;color:#a0816a;">kindly respond by March 29th, 2026</p>
+  </div>
+
+  <!-- Floral Bottom -->
+  <svg width="100%" viewBox="0 0 480 80" xmlns="http://www.w3.org/2000/svg" style="transform:scaleY(-1);display:block;">
+    <rect width="480" height="80" fill="#fdf8f4"/>
+    <path d="M0,0 Q60,50 130,40 Q170,34 210,60" stroke="#c4a882" stroke-width="1" fill="none"/>
+    <path d="M480,0 Q420,50 350,40 Q310,34 270,60" stroke="#c4a882" stroke-width="1" fill="none"/>
+    <ellipse cx="130" cy="40" rx="10" ry="5" fill="#9ab890" opacity="0.6" transform="rotate(20,130,40)"/>
+    <circle cx="170" cy="35" r="6" fill="#e8c4b0" opacity="0.7"/>
+    <circle cx="170" cy="35" r="3" fill="#d4a898"/>
+    <ellipse cx="350" cy="40" rx="10" ry="5" fill="#9ab890" opacity="0.6" transform="rotate(-20,350,40)"/>
+    <circle cx="310" cy="35" r="6" fill="#e8c4b0" opacity="0.7"/>
+    <circle cx="310" cy="35" r="3" fill="#d4a898"/>
+  </svg>
+</div>
+
+<!-- RSVP -->
+<div class="rsvp-section">
+  <p class="rsvp-title">RSVP</p>
+  <p class="rsvp-sub">kindly let us know</p>
+  <div id="rsvp-form">
+    <div class="rsvp-field">
+      <label>Your name</label>
+      <input type="text" id="rsvp-name" placeholder="Full name"/>
+    </div>
+    <div class="rsvp-field">
+      <label>Attending?</label>
+      <select id="rsvp-attending">
+        <option value="">— please select —</option>
+        <option value="Joyfully accepts">Joyfully accepts</option>
+        <option value="Regretfully declines">Regretfully declines</option>
+      </select>
+    </div>
+    <div class="guests-row">
+      <div class="rsvp-field">
+        <label>Adults</label>
+        <select id="rsvp-adults"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+      </div>
+      <div class="rsvp-field">
+        <label>Children</label>
+        <select id="rsvp-children"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option></select>
+      </div>
+    </div>
+    <div class="rsvp-field">
+      <label>Message for the family (optional)</label>
+      <input type="text" id="rsvp-msg" placeholder="A warm wish…"/>
+    </div>
+    <button class="rsvp-btn" id="rsvp-btn" onclick="submitRSVP()">Send RSVP</button>
+    <p class="err-msg" id="rsvp-error">Please fill in your name and attendance.</p>
+    <p class="status-msg" id="status-msg"></p>
+  </div>
+  <div class="success-msg" id="success-msg">
+    <div class="success-icon">✿</div>
+    <p id="success-text">We look forward to celebrating with you!</p>
+    <p class="success-small" id="success-sub">Your RSVP has been received.</p>
+  </div>
+  <p class="deadline-note">Please RSVP by March 29th, 2026</p>
+</div>
+
+<script>
+async function submitRSVP() {
+  const name = document.getElementById('rsvp-name').value.trim();
+  const attending = document.getElementById('rsvp-attending').value;
+  const adults = document.getElementById('rsvp-adults').value;
+  const children = document.getElementById('rsvp-children').value;
+  const msg = document.getElementById('rsvp-msg').value.trim();
+  const err = document.getElementById('rsvp-error');
+  const btn = document.getElementById('rsvp-btn');
+  const status = document.getElementById('status-msg');
+
+  if (!name || !attending) { err.style.display = 'block'; return; }
+  err.style.display = 'none';
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+
+  const emailBody = `🌸 New RSVP for Zuvi's 1st Birthday 🌸\n\nName: ${name}\nResponse: ${attending}\nAdults: ${adults}\nChildren: ${children}\n${msg ? 'Message: ' + msg : ''}\n\n— Sent via Zuvi's Birthday Invite`.trim();
+
+  try {
+    const resp = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        messages: [{ role: 'user', content: `Send an email via Gmail to itzparthshah@gmail.com with subject: "🌸 RSVP from ${name} — Zuvi's 1st Birthday" and body:\n${emailBody}` }],
+        mcp_servers: [{ type: 'url', url: 'https://gmail.mcp.claude.com/mcp', name: 'gmail-mcp' }]
+      })
+    });
+    const data = await resp.json();
+    const allText = (data.content || []).filter(b => b.type === 'text').map(b => b.text).join(' ').toLowerCase();
+    const hasTool = (data.content || []).some(b => b.type === 'mcp_tool_result');
+    if (hasTool || allText.includes('sent') || allText.includes('email')) {
+      showSuccess(name, attending);
+    } else { throw new Error(); }
+  } catch {
+    btn.disabled = false;
+    btn.textContent = 'Send RSVP';
+    status.style.color = '#c47060';
+    status.textContent = 'Something went wrong. Please try again.';
+    status.style.display = 'block';
+  }
+}
+
+function showSuccess(name, attending) {
+  document.getElementById('rsvp-form').style.display = 'none';
+  document.getElementById('success-msg').style.display = 'block';
+  if (attending === 'Joyfully accepts') {
+    document.getElementById('success-text').textContent = 'We look forward to celebrating with you, ' + name + '!';
+    document.getElementById('success-sub').textContent = 'Your RSVP has been received. See you April 25th!';
+  } else {
+    document.getElementById('success-text').textContent = 'Thank you for letting us know, ' + name + '.';
+    document.getElementById('success-sub').textContent = 'You will be missed — we will save you some cake!';
+  }
+}
+</script>
+</body>
+</html>
